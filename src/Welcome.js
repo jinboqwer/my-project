@@ -10,7 +10,7 @@ class Welcome extends React.Component {
         return (
             <div className="this">
                 <h1>Hello World</h1>
-                {isLogin ? <p>欢迎</p> : <p>请登录</p>}
+                {isLogin ? <p>欢迎你</p> : <p>请登录</p>}
                 <ul>
                     {todoList.map(item => <li>{item}</li>)}
                 </ul>

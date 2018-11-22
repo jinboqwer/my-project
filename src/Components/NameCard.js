@@ -1,5 +1,6 @@
 import React from 'react';
 import LikesButton from './LikesButton';
+import DigitalClock from './DigitalClock';
 
 const NameCard = (props) => {
     const { name, number, isHunman, tags } = props 
@@ -23,6 +24,7 @@ const NameCard = (props) => {
                 })}
             </p>
             <LikesButton />
+            <DigitalClock />
         </div>
     )
 }

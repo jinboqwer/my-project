@@ -1,5 +1,4 @@
 import React from "react";
-import './LikesButton.css';
 import like from './like.svg';
 
 class LikesButton extends React.Component {

@@ -8,11 +8,11 @@ class DigitalClock extends React.Component {
         }
     }
     componentDidMount() { 
-        this.timer = setInterval(() => {
+        this.timer = setInterval(() => (
             this.setState({
                 date: new Date()
             })
-        }, 1000)
+        ), 2000)
     }
     componentDidUpdate(prevProps,prevState) {
         console.log(this.timer)

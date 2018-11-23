@@ -1,6 +1,7 @@
 import React from 'react';
 import LikesButton from './LikesButton';
 import DigitalClock from './DigitalClock';
+import CommentBox from './CommentBox.js';
 
 const NameCard = (props) => {
     const { name, number, isHunman, tags } = props 
@@ -25,6 +26,7 @@ const NameCard = (props) => {
             </p>
             <LikesButton />
             <DigitalClock />
+            <CommentBox />
         </div>
     )
 }

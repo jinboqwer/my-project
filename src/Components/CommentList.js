@@ -12,6 +12,7 @@ class CommentList extends React.Component {
         
     }
 //onClick={() => this.deleteComment(index)} 箭头函数的参数为event事件
+// 使用bind的一种写法 onClick={this.deleteComment.bind(this,index)}
     render() {
         return (
             <div>

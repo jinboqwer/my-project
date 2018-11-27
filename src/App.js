@@ -41,7 +41,8 @@ class App extends Component {
   //删除CommentList组件的评论
   deleteSomeComment(index) {
     console.log(index)
-    let newComments = this.state.comments
+    //const newComments = this.state.comments 直接修改state不合适
+    const newComments = [...this.state.comments]
     newComments.splice(index, 1)
     this.setState({
       comments: newComments
@@ -51,7 +52,7 @@ class App extends Component {
   addComment(comment) {
 
     this.setState({
-      comments: [...this.state.comments, comment]
+      comments: [...this.state.comments, comment]  //展开运算符
     })
   }
 

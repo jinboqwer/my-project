@@ -54,10 +54,11 @@ class CommentBox extends React.Component {
             value: ''
         })         
     }
+    // for 要换成htmlFor
     render() {
         return (
             <form onSubmit={this.commentChange}>
-                <label for='inputText'>请留言</label>
+                <label htmlFor='inputText'>请留言</label>
                 <input onChange={this.textChange} id='inputText' value={this.state.value} />
                 <button>提交</button>
                 <p>已有{this.props.commentsLength}条评论</p>

@@ -1,4 +1,5 @@
 import React from 'react'
+import propTypes from 'prop-types'
 
 
 class CommentList extends React.Component {
@@ -13,14 +14,17 @@ class CommentList extends React.Component {
     }
 //onClick={() => this.deleteComment(index)} 箭头函数的参数为event事件
 // 使用bind的一种写法 onClick={this.deleteComment.bind(this,index)}
+//text没传入
     render() {
+        const { comments, text } = this.props
         return (
             <div>
                 <label>评论列表</label>
                 <ul>
-                    {this.props.comments.map((comment, index) => {
+                    {comments.map((comment, index) => {
                         return (
                             <li key={index} >
+                                {text}
                                 {comment}
                                 <button onClick={() => this.deleteComment(index)}>
                                 删除
@@ -57,4 +61,13 @@ class CommentList extends React.Component {
 //     )
 // }
 
+//数据类型校验 isRequired是必要值
+CommentList.propTypes = {
+    deleteSomeComment:propTypes.func,
+    comments:propTypes.array.isRequired
+}
+//默认数值 
+CommentList.defaultProps = {
+    text:'测试'
+}
 export default CommentList

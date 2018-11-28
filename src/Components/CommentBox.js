@@ -34,32 +34,29 @@ import React from 'react'
 class CommentBox extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            value: ''
-        }
-        this.textChange = this.textChange.bind(this)
+        
+        this.textChangeHandle = this.textChangeHandle.bind(this)
         this.commentChange = this.commentChange.bind(this)
     }
-    textChange(event) {
-        this.setState({
-            value: event.target.value
-        })
+    
+    textChangeHandle(event) {
+        const { textChange } = this.props
+        textChange(event)
+        
     }
     commentChange(event) {
         event.preventDefault()
-        if (this.state.value) {
-            this.props.addComment(this.state.value)
-        }
-        this.setState({
-            value: ''
-        })         
+        const { value, addComment} = this.props
+        if (value) {
+            addComment(value)
+        }        
     }
     // for 要换成htmlFor
     render() {
         return (
             <form onSubmit={this.commentChange}>
                 <label htmlFor='inputText'>请留言</label>
-                <input onChange={this.textChange} id='inputText' value={this.state.value} />
+                <input onChange={this.textChangeHandle} id='inputText' value={this.props.value} />
                 <button>提交</button>
                 <p>已有{this.props.commentsLength}条评论</p>
             </form>

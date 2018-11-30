@@ -1,0 +1,38 @@
+.show {
+    animation: show-item 2s ease-in; 
+    opacity: 1;
+}
+.hidden {
+    animation: hide-item 2s ease-in; 
+    opacity: 0;
+}
+@keyframes hide-item {
+    0% {
+        opacity: 1;
+        color: red;
+    }
+    50% {
+        opacity: 0.5;
+        color:green;
+    }
+    100% {
+        opacity: 1;
+        color: blue;
+    }
+    
+}
+@keyframes show-item {
+    0% {
+        opacity: 0;
+        color: blue;
+    }
+    50% {
+        opacity: 0.5;
+        color:green;
+    }
+    100% {
+        opacity: 1;
+        color: red;
+    }
+    
+}

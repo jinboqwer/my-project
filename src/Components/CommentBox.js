@@ -38,6 +38,13 @@ class CommentBox extends React.Component {
         this.textChangeHandle = this.textChangeHandle.bind(this)
         this.commentChange = this.commentChange.bind(this)
     }
+
+    shouldComponentUpdate (nextProps,nextState) {
+        if (nextProps.value !== this.props.value) {
+            return true;
+        }
+        return false;
+    }
     
     textChangeHandle(event) {
         const { textChange } = this.props

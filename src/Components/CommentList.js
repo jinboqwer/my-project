@@ -12,6 +12,14 @@ class CommentList extends React.Component {
         this.props.deleteSomeComment(index)
         
     }
+
+    shouldComponentUpdate (nextProps,nextState) {
+        if (nextProps.comments !== this.props.comments) {
+            return true;
+        }
+        return false;
+    }
+
 //onClick={() => this.deleteComment(index)} 箭头函数的参数为event事件
 // 使用bind的一种写法 onClick={this.deleteComment.bind(this,index)}
 //text没传入

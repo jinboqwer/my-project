@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 import CommentBox from './Components/CommentBox';
@@ -25,7 +26,7 @@ class App extends Component {
         super(props)
         this.state = {
             value: '',
-            comments: ['第一条评论', '第二条评论'],
+            comments: [],
             theme: 'light'
         }
         this.addComment = this.addComment.bind(this)
@@ -33,7 +34,10 @@ class App extends Component {
         this.changeTheme = this.changeTheme.bind(this)
         this.textChange = this.textChange.bind(this)
     }
-
+    
+    // componentWillMount() {
+    //     console.log('componentDidMount')
+    // }
     //点击切换样式
     changeTheme(theme) {
         this.setState(() => ({
@@ -69,6 +73,18 @@ class App extends Component {
         this.setState(() => ({
             value: value
         }))
+    }
+
+    //试验ajax请求
+    componentDidMount() {
+        
+        axios.get('./api/todolist').then((ref) => {
+           this.setState(() => ({
+               comments:[...ref.data]
+           }))
+        }).catch(() => {
+            alert('error')
+        })
     }
 
     render() {

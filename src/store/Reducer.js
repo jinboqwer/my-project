@@ -1,12 +1,8 @@
-import { CHANG_INPUT_VALUE, ADD_VALUSE, DELETE_ITEM } from './actionTypes'
+import { CHANG_INPUT_VALUE, ADD_VALUSE, DELETE_ITEM, INT_DATA } from './actionTypes'
 
 const defaultState = {
-    inputValue: '123',
-    data: ['Racing car sprays burning fuel into crowd.',
-        'Japanese princess to wed commoner.',
-        'Australian walks 100km after outback crash.',
-        'Man charged over missing wedding girl.',
-        'Los Angeles battles huge wildfires.',]
+    inputValue: '',
+    data: []
 }
 
 export default (state = defaultState, action) => {
@@ -26,5 +22,12 @@ export default (state = defaultState, action) => {
         newState.data.splice(action.index, 1);
         return newState
     }
+
+    if (action.type === INT_DATA) {
+        const newState = JSON.parse(JSON.stringify(state));
+        newState.data = action.data;
+        return newState
+    }
+
     return state;
 }

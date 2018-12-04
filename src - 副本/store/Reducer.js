@@ -13,12 +13,9 @@ export default (state = defaultState, action) => {
     }
     if (action.type === ADD_VALUSE) {
         const newState = JSON.parse(JSON.stringify(state));
-        if (newState.inputValue) {
-            newState.data.push(newState.inputValue);
-            newState.inputValue = '';
-            return newState
-        }
-        return state
+        newState.data.push(newState.inputValue);
+        newState.inputValue = '';
+        return newState
     }
     if (action.type === DELETE_ITEM) {
         const newState = JSON.parse(JSON.stringify(state));

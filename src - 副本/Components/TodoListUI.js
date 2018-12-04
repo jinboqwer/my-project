@@ -2,7 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import { Input, Button, List } from 'antd';
 
-//UI组件   无状态组件 函数写法提升性能
+//UI组件   无状态组件
 
 const TodoListUI = (props) => {
     return (
